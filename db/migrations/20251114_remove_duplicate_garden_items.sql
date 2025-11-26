@@ -1,5 +1,5 @@
 -- Migration: Remove old garden items that are no longer used
--- The new garden items are: Tulips, Cacti (colored), Sunflowers, and their Golden variants
+-- The new garden items are: Sunflowers and Golden variants only
 -- Backgrounds: Chill Background, Grass Backyard, Raised Beds, Garden Background
 
 -- Remove old plants that are no longer in the current item set
@@ -19,7 +19,14 @@ WHERE name IN (
   'Cactus Pot',
   'Watercolor Cactus',
   'May Flowers',
-  'White Flowers'
+  'White Flowers',
+  'Hot Pink Tulip',
+  'Light Pink Tulip',
+  'Orange Tulip',
+  'Purple Tulip',
+  'Orange Cactus',
+  'Pink Cactus',
+  'Red Cactus'
 ) AND item_type = 'plant';
 
 -- Remove old backgrounds that are no longer used

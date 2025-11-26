@@ -42,20 +42,13 @@ The following columns are added to the `users` table:
 
 The migration adds the following new items:
 
-### Plants (Regular Variants)
-- Hot Pink Tulip: 120 seeds
-- Light Pink Tulip: 110 seeds
-- Orange Tulip: 130 seeds
-- Purple Tulip: 140 seeds
-- Orange Cactus: 160 seeds
-- Pink Cactus: 170 seeds
-- Red Cactus: 180 seeds
-- Sunflower: 220 seeds
+### Plants
+- Sunflower: 220 seeds - A bright cheerful sunflower
 
 ### Plants (Golden Variants - Premium Pricing)
-- Golden Tulip: 360 seeds (3x regular tulip price)
-- Golden Cactus: 480 seeds (3x regular cactus price)
-- Golden Sunflower: 660 seeds (3x sunflower price)
+- Golden Tulip: 360 seeds - A rare and luxurious golden tulip
+- Golden Cactus: 480 seeds - An extremely rare golden cactus
+- Golden Sunflower: 660 seeds - The rarest golden sunflower
 
 ### Backgrounds
 - Chill Background: **FREE** (0 seeds) - Default background for all users
