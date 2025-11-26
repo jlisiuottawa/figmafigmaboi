@@ -110,7 +110,7 @@ export function AuthProvider({ children }) {
       if (updates.seeds !== undefined || updates.level !== undefined || 
           updates.xp !== undefined || updates.points !== undefined ||
           updates.streak !== undefined || updates.totalSavings !== undefined ||
-          updates.co2Saved !== undefined) {
+          updates.co2Saved !== undefined || updates.completedTaskIds !== undefined) {
         await api.updateProgress(updates)
       }
       
