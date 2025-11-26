@@ -32,21 +32,37 @@ CREATE TABLE IF NOT EXISTS user_garden_background (
 CREATE INDEX IF NOT EXISTS idx_user_garden_user_id ON user_garden(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_garden_background_user_id ON user_garden_background(user_id);
 
--- Insert plant items (without duplicates)
+-- Insert plant items - Tulips
 INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
-  ('Cactus', 'plant', '/cactus-png-cactus-png-transparent-image-1100-1477750922.png', 100, 'A hardy desert cactus'),
-  ('Carnivorous Plant', 'plant', '/carnivorous-plants-png-67-qmcb1ttwx4r5ulry-2198993268.png', 200, 'An exotic carnivorous plant'),
-  ('Pine Tree', 'plant', '/Christmas-Pine-Tree-PNG-Photos-3027227939.png', 160, 'A festive pine tree'),
-  ('Exotic Palm', 'plant', '/exotic-palm-trees-png-vpl1-fo5qdx8hg0eqmxk6-1167291046.png', 175, 'Exotic tropical palm'),
-  ('Desert Plants', 'plant', '/desert-rock-with-plants-free-png-3289328249.png', 130, 'Desert plants on rocks'),
-  ('Flower Bouquet', 'plant', '/bouquet_PNG56-2476668681.png', 110, 'Colorful flower bouquet'),
-  ('Potted Plant', 'plant', '/pngtree-realistic-potted-plants-png-image_6697677-163290860.png', 105, 'Realistic potted plant'),
-  ('Pandanus Plant', 'plant', '/variegated-grass-pandanus-plant-in-white-round-contemporary-pot-container-isolated-on-transparent-background-for-garden-design-usage-free-png-3719357207.png', 135, 'Variegated pandanus plant')
+  ('Hot Pink Tulip', 'plant', '/HotPinkTulip.png', 120, 'A vibrant hot pink tulip'),
+  ('Light Pink Tulip', 'plant', '/LightPinkTulip.png', 110, 'A delicate light pink tulip'),
+  ('Orange Tulip', 'plant', '/OrangeTulip.png', 130, 'A bright orange tulip'),
+  ('Purple Tulip', 'plant', '/PurpleTulip.png', 140, 'A majestic purple tulip')
+ON CONFLICT DO NOTHING;
+
+-- Insert plant items - Cacti
+INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
+  ('Orange Cactus', 'plant', '/OrangeCactus.png', 160, 'A hardy orange cactus'),
+  ('Pink Cactus', 'plant', '/PinkCactus.png', 170, 'A rare pink cactus'),
+  ('Red Cactus', 'plant', '/RedCactus.png', 180, 'A striking red cactus')
+ON CONFLICT DO NOTHING;
+
+-- Insert plant items - Sunflower
+INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
+  ('Sunflower', 'plant', '/SunFlower.png', 220, 'A bright cheerful sunflower')
+ON CONFLICT DO NOTHING;
+
+-- Insert plant items - Golden variants
+INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
+  ('Golden Tulip', 'plant', '/GoldenTulip.png', 360, 'A rare and luxurious golden tulip'),
+  ('Golden Cactus', 'plant', '/GoldenCactus.png', 480, 'An extremely rare golden cactus'),
+  ('Golden Sunflower', 'plant', '/GoldenSunFlower.png', 660, 'The rarest golden sunflower')
 ON CONFLICT DO NOTHING;
 
 -- Insert background items
 INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
-  ('Abstract Garden', 'background', '/backgrounds/994778ec1b5c816a8e4b7d57278e78e8-2671973825.jpg', 300, 'Abstract artistic garden background'),
-  ('Backyard', 'background', '/backgrounds/backyard-1270670421.jpg', 250, 'Cozy backyard setting'),
-  ('Sunset Garden', 'background', '/backgrounds/qAaqtuur2VRuaTSz2zTVhK-2487532322.jpg', 350, 'Beautiful sunset garden view')
+  ('Chill Background', 'background', '/chill background.jpg', 0, 'A peaceful default background (Free!)'),
+  ('Grass Backyard', 'background', '/grass backyard.jpg', 1500, 'A lush grass backyard'),
+  ('Raised Beds', 'background', '/raised_beds.jpg', 2000, 'Beautiful raised garden beds'),
+  ('Garden Background', 'background', '/GardenBackground.pdf', 2500, 'Classic garden scene')
 ON CONFLICT DO NOTHING;
