@@ -1,22 +1,31 @@
--- Migration: Remove duplicate garden items from the shop
--- This keeps the most unique/interesting versions and removes similar duplicates
+-- Migration: Remove old garden items that are no longer used
+-- The new garden items are: Tulips, Cacti (colored), Sunflowers, and their Golden variants
+-- Backgrounds: Chill Background, Grass Backyard, Raised Beds, Garden Background
 
--- Remove duplicate palm trees (keep Exotic Palm, remove regular Palm Tree)
+-- Remove old plants that are no longer in the current item set
 DELETE FROM garden_items 
-WHERE name = 'Palm Tree' AND item_type = 'plant';
+WHERE name IN (
+  'Cactus', 
+  'Carnivorous Plant', 
+  'Carnivorous Plant Art',
+  'Pine Tree', 
+  'Pine Tree Classic',
+  'Exotic Palm', 
+  'Palm Tree',
+  'Desert Plants', 
+  'Flower Bouquet', 
+  'Potted Plant', 
+  'Pandanus Plant',
+  'Cactus Pot',
+  'Watercolor Cactus',
+  'May Flowers',
+  'White Flowers'
+) AND item_type = 'plant';
 
--- Remove duplicate cacti (keep main Cactus, remove Cactus Pot and Watercolor Cactus)
+-- Remove old backgrounds that are no longer used
 DELETE FROM garden_items 
-WHERE name IN ('Cactus Pot', 'Watercolor Cactus') AND item_type = 'plant';
-
--- Remove duplicate carnivorous plants (keep main Carnivorous Plant, remove Art variant)
-DELETE FROM garden_items 
-WHERE name = 'Carnivorous Plant Art' AND item_type = 'plant';
-
--- Remove duplicate pine trees (keep Pine Tree, remove Pine Tree Classic)
-DELETE FROM garden_items 
-WHERE name = 'Pine Tree Classic' AND item_type = 'plant';
-
--- Remove duplicate flowers (keep Flower Bouquet, remove May Flowers and White Flowers)
-DELETE FROM garden_items 
-WHERE name IN ('May Flowers', 'White Flowers') AND item_type = 'plant';
+WHERE name IN (
+  'Abstract Garden',
+  'Backyard',
+  'Sunset Garden'
+) AND item_type = 'background';

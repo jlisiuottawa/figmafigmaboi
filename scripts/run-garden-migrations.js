@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const migrations = [
+  '../db/migrations/20251114_remove_duplicate_garden_items.sql',
   '../db/migrations/20251121_add_plant_health_tracking.sql',
   '../db/migrations/20251121_update_garden_items.sql'
 ];
