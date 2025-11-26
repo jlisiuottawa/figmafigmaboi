@@ -301,6 +301,27 @@ export const createTables = async (exitOnComplete = true) => {
     `);
     console.log('✅ Garden indexes created');
     
+    // Insert plant items - Tulips
+    await client.query(`
+      INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
+        ('Hot Pink Tulip', 'plant', '/HotPinkTulip.png', 120, 'A vibrant hot pink tulip'),
+        ('Light Pink Tulip', 'plant', '/LightPinkTulip.png', 110, 'A delicate light pink tulip'),
+        ('Orange Tulip', 'plant', '/OrangeTulip.png', 130, 'A bright orange tulip'),
+        ('Purple Tulip', 'plant', '/PurpleTulip.png', 140, 'A majestic purple tulip')
+      ON CONFLICT DO NOTHING
+    `);
+    console.log('✅ Tulip plants inserted');
+    
+    // Insert plant items - Cacti
+    await client.query(`
+      INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
+        ('Orange Cactus', 'plant', '/OrangeCactus.png', 160, 'A hardy orange cactus'),
+        ('Pink Cactus', 'plant', '/PinkCactus.png', 170, 'A rare pink cactus'),
+        ('Red Cactus', 'plant', '/RedCactus.png', 180, 'A striking red cactus')
+      ON CONFLICT DO NOTHING
+    `);
+    console.log('✅ Cactus plants inserted');
+    
     // Insert plant items - Sunflower
     await client.query(`
       INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES

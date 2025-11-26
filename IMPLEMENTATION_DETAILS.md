@@ -22,13 +22,20 @@ consecutive_water_days INTEGER DEFAULT 0
 
 **New Garden Items:**
 
-Plants:
-- Sunflower (220 seeds) - A bright cheerful sunflower
+Plants (Regular):
+- Hot Pink Tulip (120 seeds)
+- Light Pink Tulip (110 seeds)
+- Orange Tulip (130 seeds)
+- Purple Tulip (140 seeds)
+- Orange Cactus (160 seeds)
+- Pink Cactus (170 seeds)
+- Red Cactus (180 seeds)
+- Sunflower (220 seeds)
 
 Plants (Golden - Premium):
-- Golden Tulip (360 seeds) - A rare and luxurious golden tulip
-- Golden Cactus (480 seeds) - An extremely rare golden cactus
-- Golden Sunflower (660 seeds) - The rarest golden sunflower
+- Golden Tulip (360 seeds) - 3x tulip price
+- Golden Cactus (480 seeds) - 3x cactus price
+- Golden Sunflower (660 seeds) - 3x sunflower price
 
 Backgrounds:
 - Chill Background (0 seeds) - FREE, default for all users
@@ -132,13 +139,13 @@ Health Regeneration:
 - Maximum health is always 3 bars
 
 **Purchase Limits:**
-- Plants: 2 of each type (e.g., can buy 2 Golden Tulips AND 2 Sunflowers)
+- Plants: 2 of each type (e.g., can buy 2 Golden Tulips AND 2 Hot Pink Tulips)
 - Backgrounds: Can own multiple but only 1 active at a time
 - Free items (Chill Background): Always available
 
 **Pricing Tiers:**
-- Regular plant (Sunflower): 220 seeds
-- Golden plants: 360-660 seeds (premium)
+- Regular plants: 100-250 seeds (based on rarity)
+- Golden plants: 360-660 seeds (2-3x premium)
 - Backgrounds: 0-2500 seeds (Chill Background is free)
 
 ### 5. Technical Implementation Details
