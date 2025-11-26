@@ -2,11 +2,11 @@
 DELETE FROM garden_items;
 
 -- Insert new plant items (only sunflowers and golden variants)
--- Sunflower (200-250 seeds)
+-- Sunflower (220 seeds)
 INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
   ('Sunflower', 'plant', '/SunFlower.png', 220, 'A bright cheerful sunflower');
 
--- Golden variants (premium plants)
+-- Golden variants (premium plants, 360-660 seeds)
 INSERT INTO garden_items (name, item_type, image_path, cost_seeds, description) VALUES
   ('Golden Tulip', 'plant', '/GoldenTulip.png', 360, 'A rare and luxurious golden tulip'),
   ('Golden Cactus', 'plant', '/GoldenCactus.png', 480, 'An extremely rare golden cactus'),
