@@ -40,6 +40,7 @@ export default function Tasks() {
   const [loading, setLoading] = useState(false)
   const [lastCompletedDate, setLastCompletedDate] = useState(null)
   const [bonusTasksCycled, setBonusTasksCycled] = useState(false)
+  const [cycledBonusSeeds, setCycledBonusSeeds] = useState(0) // Track seeds from cycled bonus tasks
 
   // Check if we need to reset tasks for a new day at midnight
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function Tasks() {
         if (lastDate && lastDate !== today) {
           setCompletedTasks(new Set())
           setBonusTasksCycled(false)
+          setCycledBonusSeeds(0) // Reset cycled bonus seeds on new day
           // Update user's last activity date and clear completed tasks
           updateUser({ 
             completedTaskIds: [],
@@ -122,6 +124,14 @@ export default function Tasks() {
     if (allRegularTasksDone && allBonusTasksDone && !bonusTasksCycled) {
       setBonusTasksCycled(true)
       
+      // Calculate the seeds from bonus tasks before removing them
+      const bonusTaskSeeds = BONUS_TASKS
+        .filter(task => completedTasks.has(task.id))
+        .reduce((sum, task) => sum + task.seeds, 0)
+      
+      // Add these seeds to our cycled bonus seeds tracker
+      setCycledBonusSeeds(prev => prev + bonusTaskSeeds)
+      
       // Remove bonus task IDs from completed tasks to allow re-doing them
       const regularTaskIds = REGULAR_TASKS.map(t => t.id)
       const newCompletedTasks = new Set(
@@ -153,10 +163,10 @@ export default function Tasks() {
   const totalCompleted = regularTasksCompleted + bonusTasksCompleted
   const allRegularTasksDone = regularTasksCompleted === REGULAR_TASKS.length
   
-  // Calculate seeds earned TODAY from currently completed tasks
+  // Calculate seeds earned TODAY from currently completed tasks plus cycled bonus seeds
   const totalSeeds = [...REGULAR_TASKS, ...BONUS_TASKS]
     .filter(task => completedTasks.has(task.id))
-    .reduce((sum, task) => sum + task.seeds, 0)
+    .reduce((sum, task) => sum + task.seeds, 0) + cycledBonusSeeds
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#071021] to-[#0e1723] text-slate-100 pb-20">
