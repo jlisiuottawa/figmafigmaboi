@@ -649,7 +649,7 @@ router.post('/garden/purchase',
       }
 
       if (item.item_type === 'plant') {
-        // Check if user already owns 2 of this plant
+        // Check if user already owns 4 of this plant
         const ownedCountResult = await client.query(
           `SELECT COUNT(*) as count FROM user_garden 
            WHERE user_id = $1 AND item_id = $2 AND is_active = true`,
@@ -657,10 +657,10 @@ router.post('/garden/purchase',
         );
         
         const ownedCount = parseInt(ownedCountResult.rows[0].count);
-        if (ownedCount >= 2) {
+        if (ownedCount >= 4) {
           await client.query('ROLLBACK');
           return res.status(400).json({ 
-            error: 'You can only own up to 2 of each plant type'
+            error: 'You can only own up to 4 of each plant type'
           });
         }
       }
