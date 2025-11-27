@@ -438,12 +438,12 @@ export default function Garden() {
             {/* Plants Shop */}
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-5 border border-slate-700/50">
               <h2 className="text-xl font-semibold mb-4">🌿 Plants</h2>
-              <p className="text-sm text-slate-400 mb-4">You can buy up to 2 of each plant type</p>
+              <p className="text-sm text-slate-400 mb-4">You can buy up to 4 of each plant type</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {availableItems.plants.map(plant => {
                   const canAfford = userSeeds >= plant.cost_seeds
                   const ownedCount = garden.plants.filter(p => p.item_id === plant.id).length
-                  const canBuyMore = ownedCount < 2
+                  const canBuyMore = ownedCount < 4
                   const isGolden = plant.name.toLowerCase().includes('golden')
                   
                   return (
@@ -473,7 +473,7 @@ export default function Garden() {
                               </span>
                               {ownedCount > 0 && (
                                 <div className="text-xs text-slate-500 mt-1">
-                                  Owned: {ownedCount}/2
+                                  Owned: {ownedCount}/4
                                 </div>
                               )}
                             </div>
